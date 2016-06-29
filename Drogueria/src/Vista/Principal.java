@@ -17,6 +17,7 @@ import Vista.ProveedorDrop;
 import Vista.ProveedorMod;
 import Vista.ProveedorView;
 import Vista.VentasInterfaz;
+import java.awt.Frame;
 
 /**
  *
@@ -29,6 +30,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -42,6 +44,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -59,10 +62,14 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem15 = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
         jMenuItem3.setText("jMenuItem3");
+
+        jMenuItem14.setText("jMenuItem14");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,7 +85,10 @@ public class Principal extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Proceso de Venta");
+        jMenu1.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
 
+        jMenuItem1.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/bolsa-de-dinero.png"))); // NOI18N
         jMenuItem1.setText("Venta");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +100,10 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu3.setText("Productos");
+        jMenu3.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
 
+        jMenuItem6.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/anadir.png"))); // NOI18N
         jMenuItem6.setText("Insertar");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,6 +112,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem6);
 
+        jMenuItem7.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/red.png"))); // NOI18N
         jMenuItem7.setText("cambios");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +125,10 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu2.setText("Clientes");
+        jMenu2.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
 
+        jMenuItem4.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/usuario_m.png"))); // NOI18N
         jMenuItem4.setText("Agregar");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +137,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem4);
 
+        jMenuItem5.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/usuario.png"))); // NOI18N
         jMenuItem5.setText("Modificar");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +147,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem5);
 
+        jMenuItem8.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/usuario_c.png"))); // NOI18N
         jMenuItem8.setText("Consultar");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +157,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem8);
 
+        jMenuItem9.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/usuario_e.png"))); // NOI18N
         jMenuItem9.setText("Eliminar");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +170,10 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu4.setText("Proveedores");
+        jMenu4.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
 
+        jMenuItem13.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/usuario (4).png"))); // NOI18N
         jMenuItem13.setText("Agregar");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,6 +182,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem13);
 
+        jMenuItem12.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/usuario (5).png"))); // NOI18N
         jMenuItem12.setText("Modificar");
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,6 +192,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem12);
 
+        jMenuItem11.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/usuario (6).png"))); // NOI18N
         jMenuItem11.setText("Consultar");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,6 +202,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem11);
 
+        jMenuItem10.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/usuario (7).png"))); // NOI18N
         jMenuItem10.setText("Eliminar");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +213,16 @@ public class Principal extends javax.swing.JFrame {
         jMenu4.add(jMenuItem10);
 
         jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("Informes");
+        jMenu5.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
+
+        jMenuItem15.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/monedas.png"))); // NOI18N
+        jMenuItem15.setText("Venta dia");
+        jMenu5.add(jMenuItem15);
+
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -282,12 +325,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
