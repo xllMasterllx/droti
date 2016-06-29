@@ -92,6 +92,7 @@ public class ClienteMod extends javax.swing.JFrame {
 
         jLabel20.setText("Editar un Registro");
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/usuario.png"))); // NOI18N
         jButton3.setText("MODIFICAR");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,11 +189,11 @@ public class ClienteMod extends javax.swing.JFrame {
             .addGroup(jInternalFrame3Layout.createSequentialGroup()
                 .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame3Layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jInternalFrame3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel12)))
+                        .addComponent(jLabel12))
+                    .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jInternalFrame3Layout.setVerticalGroup(
@@ -238,7 +239,7 @@ public class ClienteMod extends javax.swing.JFrame {
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -6,18 +6,7 @@
 
 package Vista;
 
-import Vista.ClienteAdd;
-import Vista.ClienteDrop;
-import Vista.ClienteMod;
-import Vista.ClienteView;
-import Vista.Producto_i;
-import Vista.Producto_r;
-import Vista.ProveedorAdd;
-import Vista.ProveedorDrop;
-import Vista.ProveedorMod;
-import Vista.ProveedorView;
-import Vista.VentasInterfaz;
-import java.awt.Frame;
+
 
 /**
  *
@@ -32,7 +21,9 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
     }
-
+    javax.swing.JDesktopPane cargarVentana(){
+        return jDesktopPane1;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
