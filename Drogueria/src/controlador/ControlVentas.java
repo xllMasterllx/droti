@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.*;
-
+//alguna maricada
 public class ControlVentas {
     private String codigo;
     private int cantidad;

@@ -420,7 +420,8 @@ public class VentasInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JOptionPane.showInternalMessageDialog(jInternalFrame1, "TODAVIA NO FUNCIONA");
+        //JOptionPane.showInternalMessageDialog(jInternalFrame1, "TODAVIA NO FUNCIONA");
+        new Producto_r().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextField4CaretUpdate
