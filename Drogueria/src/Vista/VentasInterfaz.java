@@ -39,6 +39,20 @@ public class VentasInterfaz extends javax.swing.JFrame {
     public javax.swing.JInternalFrame cargarVentana(){
         return jInternalFrame1;
     }
+    public void consulta(){
+            ControlVentas cventa = new ControlVentas();
+            jLabel10.setText("");
+            jLabel11.setText("");
+            jLabel16.setText("");
+            jLabel13.setVisible(true);
+            jLabel14.setVisible(true);
+            jLabel15.setVisible(true);
+            cventa.buscarProducto(jTextField1.getText(), jLabel10, jLabel11,jLabel16);
+            if (jLabel11.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Codigo no encontrado", "ERROR", JOptionPane.WARNING_MESSAGE);
+            }
+            jTextField5.requestFocus();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -421,7 +435,8 @@ public class VentasInterfaz extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //JOptionPane.showInternalMessageDialog(jInternalFrame1, "TODAVIA NO FUNCIONA");
-        new Producto_r().setVisible(true);
+        Producto_r producto = new Producto_r();
+        producto.consulta(jTextField1,this);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextField4CaretUpdate

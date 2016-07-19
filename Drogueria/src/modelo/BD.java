@@ -1,4 +1,5 @@
 
+
 package modelo;
 
 import java.sql.Connection;
@@ -54,12 +55,36 @@ public class BD {
     }
     public ResultSet consultaDiario(String fecha){
         try {
-            PreparedStatement sentencia = conexion.prepareStatement("select id_venta,fecha,total_venta from ventas where fecha=?");
+            PreparedStatement sentencia = conexion.prepareStatement("SELECT v.fecha,v.id_venta,v.total_venta,v.total_venta-(preciomaxcompra*sum(cantidad)) ganancia FROM ventas v INNER JOIN detalleventa d on  d.id_venta=v.id_venta INNER JOIN producto p ON p.codigo_barras=d.id_producto where fecha=? group by fecha,id_venta,total_venta");
             sentencia.setString(1, fecha);
             ResultSet reg = sentencia.executeQuery();
             return reg;
         } catch (SQLException ex) {
             System.out.println("Error consulta : "+fecha+" "+ex.getLocalizedMessage());
+        }
+        return null;
+    }
+     public ResultSet consultaVentaDiaria(String fecha){
+        try {
+            PreparedStatement sentencia = conexion.prepareStatement("SELECT v.fecha,d.id_venta,d.id_producto,p.nombre,d.precio_venta, d.cantidad,d.subtotal_venta total FROM detalleventa d INNER JOIN ventas v ON v.id_venta=d.id_venta INNER JOIN producto p ON p.codigo_barras=id_producto WHERE fecha=?");
+            sentencia.setString(1, fecha);
+            ResultSet reg = sentencia.executeQuery();
+            return reg;
+        } catch (SQLException ex) {
+            System.out.println("Error consulta : "+fecha+" "+ex.getLocalizedMessage());
+        }
+        return null;
+    }
+     public ResultSet consultaAleatorio(String fechaini,String fechafin){
+        try {
+            PreparedStatement sentencia = conexion.prepareStatement("SELECT v.fecha,v.id_venta,v.total_venta,v.total_venta-(preciomaxcompra*sum(cantidad)) ganancia FROM ventas v INNER JOIN detalleventa d on d.id_venta=v.id_venta INNER JOIN producto p ON p.codigo_barras=d.id_producto where fecha BETWEEN ? AND ? group by fecha,id_venta,total_venta");
+            sentencia.setString(1, fechaini);
+            sentencia.setString(2, fechafin);
+            System.out.println("ini= "+fechaini+" fin= "+fechafin);
+            ResultSet reg = sentencia.executeQuery();
+            return reg;
+        } catch (SQLException ex) {
+            System.out.println("Error consulta : "+ex.getLocalizedMessage());
         }
         return null;
     }
@@ -80,10 +105,10 @@ public class BD {
     }
     public void InsertarProducto(String campo1, String campo2, String campo3, String campo4, String campo5, String campo6, String campo7, String campo8, String campo9) {
         try {
-            String prod = "INSERT INTO producto(nombre,presentacion,id_grupo,id_lab,codigo_barras,preciomaxcompra,precio_venta,stock,vencimiento) VALUES('" + campo1 + "','" + campo2 + "','" + campo3 + "'," + campo4 + "," + campo5 + "," + campo6 + "," + campo7 + "," + campo8 + ",'"+campo9+"'5 )";
+            String prod = "INSERT INTO producto(nombre,presentacion,id_grupo,id_lab,codigo_barras,preciomaxcompra,precio_venta,stock,vencimiento) VALUES('" + campo1 + "','" + campo2 + "','" + campo3 + "'," + campo4 + "," + campo5 + "," + campo6 + "," + campo7 + "," + campo8 + ",'"+campo9+"')";
             s.executeUpdate(prod);
         } catch (SQLException ex) {
-            System.out.println("Aun hay un ERROR?..." + ex);
+            JOptionPane.showMessageDialog(null, "Error al insertar");
         }
     }
 
@@ -268,6 +293,19 @@ public class BD {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error" + ex);
         }
 
+    }
+    public String login(){
+                String fecha="";
+            try{    
+                ResultSet f = s.executeQuery("select max(fecha) fecha from ventas limit 1");
+                while(f.next()){
+                    fecha = f.getString("fecha");
+                }
+                //conexion.close();
+             } catch(SQLException e){
+                 JOptionPane.showMessageDialog(null, "Error en la transaccion con la base de datos ERROR: "+e.toString(), null, JOptionPane.WARNING_MESSAGE);
+             }
+            return fecha;
     }
     private Statement s;
     private Connection conexion;

@@ -6,6 +6,9 @@
 
 package Vista;
 
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -17,8 +20,10 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    private int i;
+    public Principal(int i) {
         initComponents();
+        this.i = i;
         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
     }
     javax.swing.JDesktopPane cargarVentana(){
@@ -55,6 +60,8 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem17 = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -215,13 +222,33 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem15.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
         jMenuItem15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/monedas.png"))); // NOI18N
-        jMenuItem15.setText("Venta dia");
+        jMenuItem15.setText("Informe dia");
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem15ActionPerformed(evt);
             }
         });
         jMenu5.add(jMenuItem15);
+
+        jMenuItem16.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/monedas.png"))); // NOI18N
+        jMenuItem16.setText("Venta dia");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem16);
+
+        jMenuItem17.setFont(new java.awt.Font("Lucida Bright", 0, 12)); // NOI18N
+        jMenuItem17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/monedas.png"))); // NOI18N
+        jMenuItem17.setText("Informe aleatorio");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem17);
 
         jMenuBar1.add(jMenu5);
 
@@ -242,87 +269,117 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        jDesktopPane1.add(new VentasInterfaz().cargarVentana());
+        JInternalFrame in = new VentasInterfaz().cargarVentana();
+        jDesktopPane1.add(in);
+        in.moveToFront();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        jDesktopPane1.add(new Producto_i().cargarVentana());
+        JInternalFrame in = new Producto_i().cargarVentana();
+        jDesktopPane1.add(in);
+        in.moveToFront();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        jDesktopPane1.add(new Producto_r().cargarVentana());
+        if(i==0){
+            JInternalFrame in = new Producto_r().cargarVentana();
+            jDesktopPane1.add(in);
+            in.moveToFront();
+        }else{
+            JOptionPane.showMessageDialog(this, "No tienes permiso para esta opcion");
+        }
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        jDesktopPane1.add(new ClienteAdd().cargarVentana());
+        JInternalFrame in = new ClienteAdd().cargarVentana();
+        jDesktopPane1.add(in);
+        in.moveToFront();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        jDesktopPane1.add(new ClienteMod().cargarVentana());
+        JInternalFrame in = new ClienteMod().cargarVentana();
+        jDesktopPane1.add(in);
+        in.moveToFront();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        jDesktopPane1.add(new ClienteView().cargarVentana());
+        JInternalFrame in = new ClienteView().cargarVentana();
+        jDesktopPane1.add(in);
+        in.moveToFront();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        jDesktopPane1.add(new ClienteDrop().cargarVentana());
+        JInternalFrame in = new ClienteDrop().cargarVentana();
+        jDesktopPane1.add(in);
+        in.moveToFront();
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        jDesktopPane1.add(new ProveedorAdd().cargarVentana());
+        if(i==0){
+            JInternalFrame in = new ProveedorAdd().cargarVentana();
+            jDesktopPane1.add(in);
+            in.moveToFront();
+        }else{
+            JOptionPane.showMessageDialog(this, "No tienes permiso para esta opcion");
+        }
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-        jDesktopPane1.add(new ProveedorMod().cargarVentana());
+        if(i==0){
+            JInternalFrame in = new ProveedorMod().cargarVentana();
+            jDesktopPane1.add(in);
+            in.moveToFront();
+        }else{
+            JOptionPane.showMessageDialog(this, "No tienes permiso para esta opcion");
+        }
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        jDesktopPane1.add(new ProveedorView().cargarVentana());
+        JInternalFrame in = new ProveedorView().cargarVentana();
+        jDesktopPane1.add(in);
+        in.moveToFront();
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        jDesktopPane1.add(new ProveedorDrop().cargarVentana());
+        if(i==0){
+            JInternalFrame in = new ProveedorDrop().cargarVentana();
+            jDesktopPane1.add(in);
+            in.moveToFront();
+        }else{
+            JOptionPane.showMessageDialog(this, "No tienes permiso para esta opcion");
+        }
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        jDesktopPane1.add(new InfoDiario().cargarVentana());
+        if(i==0){
+            JInternalFrame in = new InfoDiario().cargarVentana();
+            jDesktopPane1.add(in);
+            in.moveToFront();
+        }else{
+            JOptionPane.showMessageDialog(this, "No tienes permiso para esta opcion");
+        }
     }//GEN-LAST:event_jMenuItem15ActionPerformed
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        JInternalFrame in = new Venta_Diaria().cargarVentana();
+        jDesktopPane1.add(in);
+        in.moveToFront();
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        if(i==0){
+            JInternalFrame in = new InfoAleatorio().cargarVentana();
+            jDesktopPane1.add(in);
+            in.moveToFront();   
+        }else{
+            JOptionPane.showMessageDialog(this, "No tienes permiso para esta opcion");
+        }
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -339,6 +396,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
