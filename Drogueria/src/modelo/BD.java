@@ -1,5 +1,3 @@
-
-
 package modelo;
 
 import java.sql.Connection;
